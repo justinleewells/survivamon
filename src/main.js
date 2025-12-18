@@ -1,12 +1,12 @@
 import Phaser from 'phaser'
 
-class Example extends Phaser.Scene {}
+import GameScene from '@scenes/game'
 
 const config = {
   type: Phaser.AUTO,
   width: 240,
   height: 160,
-  scene: Example,
+  scene: [GameScene],
   scale: {
     parent: 'game',
     mode: Phaser.Scale.FIT,
