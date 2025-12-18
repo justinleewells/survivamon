@@ -7,6 +7,7 @@ const config = {
   width: 240,
   height: 160,
   scene: [GameScene],
+  pixelArt: true,
   scale: {
     parent: 'game',
     mode: Phaser.Scale.FIT,
