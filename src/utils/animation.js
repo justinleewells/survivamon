@@ -1,6 +1,6 @@
 const defaultAnimation = (sprite, image, key, start, end) => ({
   key,
-  frameRate: 1,
+  frameRate: 2,
   repeat: -1,
   frames: sprite.anims.generateFrameNames(image, { start, end }),
 })
