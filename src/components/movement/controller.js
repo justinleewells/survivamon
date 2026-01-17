@@ -6,11 +6,13 @@ export default class MovementController {
     this.speed = 32
     this.current = { x: 0, y: 0 }
     this.target = null
+    this.direction = null
   }
   isMoving() {
     return this.target !== null
   }
   face(direction) {
+    this.direction = direction
     this.entity.setFlipX(direction === Directions.RIGHT)
     switch (direction) {
       case Directions.UP:

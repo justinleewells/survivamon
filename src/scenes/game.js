@@ -1,6 +1,9 @@
 import Player from '@components/player'
 
-import PlayerImage from '@images/player-walk.png'
+import PlayerIdleImage from '@images/player-idle.png'
+import PlayerWalkImage from '@images/player-walk.png'
+import PlayerRunImage from '@images/player-run.png'
+
 import ElvenImage from '@images/elven.png'
 import ExampleJson from '@tiled/example.json'
 
@@ -9,7 +12,15 @@ export default class GameScene extends Phaser.Scene {
     super('GameScene')
   }
   preload() {
-    this.load.spritesheet('player', PlayerImage, {
+    this.load.spritesheet('player-idle', PlayerIdleImage, {
+      frameWidth: 16,
+      frameHeight: 16,
+    })
+    this.load.spritesheet('player-walk', PlayerWalkImage, {
+      frameWidth: 16,
+      frameHeight: 16,
+    })
+    this.load.spritesheet('player-run', PlayerRunImage, {
       frameWidth: 16,
       frameHeight: 16,
     })

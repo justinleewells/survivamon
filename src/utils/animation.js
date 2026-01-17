@@ -1,12 +1,18 @@
-const defaultAnimation = (sprite, image, key, start, end) => ({
+const createAnimation = (sprite, image, key, start, end, frameRate) => ({
   key,
-  frameRate: 4,
+  frameRate,
   repeat: -1,
   frames: sprite.anims.generateFrameNames(image, { start, end }),
 })
 
-export const createDefaultAnimations = (sprite, image) => {
-  sprite.anims.create(defaultAnimation(sprite, image, 'down', 0, 3))
-  sprite.anims.create(defaultAnimation(sprite, image, 'up', 4, 7))
-  sprite.anims.create(defaultAnimation(sprite, image, 'right', 8, 11))
+export const createDirectionAnimations = (sprite, image, frameRate = 4) => {
+  sprite.anims.create(createAnimation(sprite, image, 'down', 0, 3, frameRate))
+  sprite.anims.create(createAnimation(sprite, image, 'up', 4, 7, frameRate))
+  sprite.anims.create(createAnimation(sprite, image, 'right', 8, 11, frameRate))
+}
+
+export const removeDirectionAnimations = (sprite) => {
+  sprite.anims.remove('down')
+  sprite.anims.remove('up')
+  sprite.anims.remove('right')
 }

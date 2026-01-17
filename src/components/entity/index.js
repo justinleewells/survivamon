@@ -1,9 +1,9 @@
-import { createDefaultAnimations } from '@utils/animation'
+import { createDirectionAnimations } from '@utils/animation'
 
 export default class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key) {
     super(scene, x, y, key)
-    createDefaultAnimations(this, key)
+    createDirectionAnimations(this, key)
     this.setOrigin(0, 0).play('down')
   }
   preUpdate(time, delta) {
