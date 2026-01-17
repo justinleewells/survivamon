@@ -5,6 +5,8 @@ import PlayerIdleState from './states/idle'
 import PlayerWalkState from './states/walk'
 import PlayerRunState from './states/run'
 
+const MOVEMENT_KEYS = ['up', 'right', 'down', 'left']
+
 export default class PlayerController extends MovementController {
   constructor(entity) {
     super(entity)
@@ -22,17 +24,12 @@ export default class PlayerController extends MovementController {
 
     if (this.isMoving()) return
 
-    if (
-      this.keys.up.isDown ||
-      this.keys.right.isDown ||
-      this.keys.down.isDown ||
-      this.keys.left.isDown
-    ) {
+    if (MOVEMENT_KEYS.some((key) => this.keys[key].isDown)) {
       if (this.keys.sprint.isDown) {
-        if (!(this.entity.state instanceof PlayerRunState))
+        if (!this.entity.isRunning())
           this.entity.setState(new PlayerRunState(this.entity))
       } else {
-        if (!(this.entity.state instanceof PlayerWalkState))
+        if (!this.entity.isWalking())
           this.entity.setState(new PlayerWalkState(this.entity))
       }
     }
@@ -41,7 +38,7 @@ export default class PlayerController extends MovementController {
     else if (this.keys.right.isDown) this.moveInDirection(Directions.RIGHT)
     else if (this.keys.down.isDown) this.moveInDirection(Directions.DOWN)
     else if (this.keys.left.isDown) this.moveInDirection(Directions.LEFT)
-    else if (!(this.entity.state instanceof PlayerIdleState))
+    else if (!this.entity.isIdle())
       this.entity.setState(new PlayerIdleState(this.entity))
   }
 }

@@ -2,6 +2,8 @@ import PlayerController from './controller'
 import Entity from '@components/entity'
 
 import PlayerIdleState from './states/idle'
+import PlayerWalkState from './states/walk'
+import PlayerRunState from './states/run'
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
@@ -18,5 +20,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
   preUpdate(time, delta) {
     super.preUpdate(time, delta)
     this.controller?.update(delta)
+  }
+  isIdle() {
+    return this.state instanceof PlayerIdleState
+  }
+  isWalking() {
+    return this.state instanceof PlayerWalkState
+  }
+  isRunning() {
+    return this.state instanceof PlayerRunState
   }
 }
