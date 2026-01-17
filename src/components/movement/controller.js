@@ -11,7 +11,7 @@ export default class MovementController {
     return this.target !== null
   }
   face(direction) {
-    this.entity.setFlipX(direction === Directions.LEFT)
+    this.entity.setFlipX(direction === Directions.RIGHT)
     switch (direction) {
       case Directions.UP:
         return this.entity.play('up', true)

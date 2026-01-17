@@ -10,6 +10,7 @@ export default class PlayerController extends MovementController {
       down: 'S',
       left: 'A',
       right: 'D',
+      sprint: 'SPACE',
     })
   }
   update(delta) {

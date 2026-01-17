@@ -1,6 +1,6 @@
 import Player from '@components/player'
 
-import PlayerImage from '@images/player.png'
+import PlayerImage from '@images/player-walk.png'
 import ElvenImage from '@images/elven.png'
 import ExampleJson from '@tiled/example.json'
 
